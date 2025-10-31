@@ -3,6 +3,7 @@ import { Link, Outlet, useLocation } from 'react-router-dom';
 import { 
   BriefcaseIcon, 
   UsersIcon,
+  DocumentTextIcon,
   Bars3Icon,
   XMarkIcon,
 } from '@heroicons/react/24/outline';
@@ -11,6 +12,7 @@ import clsx from 'clsx';
 const navigation = [
   { name: 'Jobs', href: '/jobs', icon: BriefcaseIcon },
   { name: 'Candidates', href: '/candidates', icon: UsersIcon },
+  { name: 'Assessments', href: '/assessments/1', icon: DocumentTextIcon },
 ];
 
 export default function Layout() {
