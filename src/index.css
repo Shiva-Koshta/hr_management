@@ -17,6 +17,20 @@
   body {
     @apply bg-gray-50 text-gray-900;
   }
+  
+  /* Improve mobile touch targets */
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    @apply min-h-[44px] sm:min-h-0;
+  }
+  
+  /* Prevent text from being too small on mobile */
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
 }
 
 @layer components {
@@ -65,6 +79,28 @@
   }
   
   .card {
-    @apply bg-white rounded-lg shadow-sm border border-gray-200 p-4;
+    @apply bg-white rounded-lg shadow-sm border border-gray-200 p-4 sm:p-6;
+  }
+  
+  /* Mobile-friendly scrollbars */
+  .overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+  
+  .overflow-x-auto::-webkit-scrollbar {
+    height: 6px;
+  }
+  
+  .overflow-x-auto::-webkit-scrollbar-track {
+    @apply bg-gray-100 rounded;
+  }
+  
+  .overflow-x-auto::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded;
+  }
+  
+  .overflow-x-auto::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400;
   }
 }

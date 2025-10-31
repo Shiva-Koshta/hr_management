@@ -100,14 +100,14 @@ export default function JobsBoard() {
   return (
     <div>
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Jobs</h1>
+          <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Jobs</h1>
           <p className="text-sm text-gray-500 mt-1">
             Manage job postings and track applications
           </p>
         </div>
-        <Button onClick={() => dispatch(openJobFormModal())}>
+        <Button onClick={() => dispatch(openJobFormModal())} className="w-full sm:w-auto">
           <PlusIcon className="h-5 w-5 mr-2" />
           Create Job
         </Button>
@@ -115,7 +115,7 @@ export default function JobsBoard() {
 
       {/* Filters */}
       <div className="mb-6 space-y-4">
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
           <Input
             placeholder="Search jobs..."
             value={localSearch}
@@ -125,15 +125,16 @@ export default function JobsBoard() {
           <Button
             variant="secondary"
             onClick={() => setShowFilters(!showFilters)}
+            className="w-full sm:w-auto"
           >
-            <FunnelIcon className="h-5 w-5 mr-2" />
-            Filters
+            <FunnelIcon className="h-5 w-5 sm:mr-2" />
+            <span className="sm:inline">Filters</span>
           </Button>
         </div>
 
         {showFilters && (
           <div className="card">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Select
                 label="Status"
                 value={filters.status}
@@ -182,8 +183,8 @@ export default function JobsBoard() {
 
           {/* Pagination */}
           {pagination.totalPages > 1 && (
-            <div className="mt-6 flex items-center justify-between">
-              <p className="text-sm text-gray-700">
+            <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <p className="text-sm text-gray-700 text-center sm:text-left">
                 Page {pagination.page} of {pagination.totalPages} ({pagination.total} total jobs)
               </p>
               <div className="flex gap-2">
